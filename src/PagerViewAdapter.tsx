@@ -41,6 +41,7 @@ export default function PagerViewAdapter<T extends Route>({
   onSwipeEnd,
   children,
   style,
+  disabledAnimation,
   ...rest
 }: Props<T>) {
   const { index } = navigationState;
@@ -63,7 +64,8 @@ export default function PagerViewAdapter<T extends Route>({
       (route: { key: string }) => route.key === key
     );
 
-    pagerRef.current?.setPage(index);
+    disabledAnimation ? pagerRef.current?.setPageWithoutAnimation(index) :
+      pagerRef.current?.setPage(index);
   }, []);
 
   React.useEffect(() => {
@@ -72,6 +74,7 @@ export default function PagerViewAdapter<T extends Route>({
     }
 
     if (indexRef.current !== index) {
+      disabledAnimation ? pagerRef.current?.setPageWithoutAnimation(index) :
       pagerRef.current?.setPage(index);
     }
   }, [keyboardDismissMode, index]);

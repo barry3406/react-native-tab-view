@@ -31,6 +31,7 @@ export type Props<T extends Route> = PagerProps & {
   lazyPreloadDistance?: number;
   sceneContainerStyle?: StyleProp<ViewStyle>;
   style?: StyleProp<ViewStyle>;
+  disabledAnimation?: Boolean;
 };
 
 export default function TabView<T extends Route>({
@@ -49,6 +50,7 @@ export default function TabView<T extends Route>({
   style,
   swipeEnabled = true,
   tabBarPosition = 'top',
+  disabledAnimation = false,
 }: Props<T>) {
   const [layout, setLayout] = React.useState({
     width: 0,
@@ -80,6 +82,7 @@ export default function TabView<T extends Route>({
         layout={layout}
         navigationState={navigationState}
         keyboardDismissMode={keyboardDismissMode}
+        disabledAnimation={disabledAnimation}
         swipeEnabled={swipeEnabled}
         onSwipeStart={onSwipeStart}
         onSwipeEnd={onSwipeEnd}
