@@ -66,7 +66,7 @@ export default function PagerViewAdapter<T extends Route>({
 
     disabledAnimation ? pagerRef.current?.setPageWithoutAnimation(index) :
       pagerRef.current?.setPage(index);
-  }, []);
+  }, [disabledAnimation]);
 
   React.useEffect(() => {
     if (keyboardDismissMode === 'auto') {

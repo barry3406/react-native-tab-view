@@ -9,6 +9,7 @@ import {
 import TabBar from './TabBar';
 import SceneView from './SceneView';
 import Pager from './Pager';
+import PagerPanResponder from './PagerPanResponder';
 import type {
   Layout,
   NavigationState,
